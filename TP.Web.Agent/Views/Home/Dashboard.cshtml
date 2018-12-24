@@ -92,6 +92,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                         </div>
                     </div>
+
                     <!-- END: Brand -->
                     <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
                         <!-- BEGIN: Horizontal Menu -->
@@ -109,7 +110,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </a>
                                 </li>
                                 <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true">
-                                    <a href="/Home/Profile?userId=@ViewBag.UserId" class="m-menu__link m-menu__toggle">
+                                    <a href="/Home/Index" class="m-menu__link m-menu__toggle">
                                         <i class="m-menu__link-icon flaticon-add"></i>
                                         <span class="m-menu__link-text">
                                             Profilim
@@ -167,7 +168,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
                                         <a href="#" class="m-nav__link m-dropdown__toggle">
                                             <span class="m-topbar__userpic">
-                                                <img src="~/Content/assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt="" />
+                                                <img src="~/Content/assets/app/media/img/favicon.png" class="m--img-rounded m--marginless m--img-centered" alt="" />
                                             </span>
                                             <span class="m-topbar__username m--hide">
                                                 Nick
@@ -179,14 +180,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <div class="m-dropdown__header m--align-center" style="background: url(~/Content/assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
                                                     <div class="m-card-user m-card-user--skin-dark">
                                                         <div class="m-card-user__pic">
-                                                            <img src="~/Content/assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt="" />
+                                                            <img src="~/Content/assets/app/media/img/favicon.png" class="m--img-rounded m--marginless" alt="" />
                                                         </div>
                                                         <div class="m-card-user__details">
                                                             <span class="m-card-user__name m--font-weight-500">
-                                                                Mark Andre
+                                                                @Model.UserCreateModel.user_name @Model.UserCreateModel.user_surname
                                                             </span>
                                                             <a href="" class="m-card-user__email m--font-weight-300 m-link">
-                                                                mark.andre@gmail.com
+                                                                @Model.UserCreateModel.user_email
                                                             </a>
                                                         </div>
                                                     </div>
@@ -200,17 +201,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 </span>
                                                             </li>
                                                             <li class="m-nav__item">
-                                                                <a href="header/profile.html" class="m-nav__link">
+                                                                <a href="/Home/Profile?userId=@ViewBag.UserId" class="m-nav__link">
                                                                     <i class="m-nav__link-icon flaticon-profile-1"></i>
                                                                     <span class="m-nav__link-title">
                                                                         <span class="m-nav__link-wrap">
                                                                             <span class="m-nav__link-text">
-                                                                                My Profile
-                                                                            </span>
-                                                                            <span class="m-nav__link-badge">
-                                                                                <span class="m-badge m-badge--success">
-                                                                                    2
-                                                                                </span>
+                                                                                Profilim
                                                                             </span>
                                                                         </span>
                                                                     </span>
@@ -384,9 +380,3 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- end::Body -->
 </html>
-
-
-
-
-
-
