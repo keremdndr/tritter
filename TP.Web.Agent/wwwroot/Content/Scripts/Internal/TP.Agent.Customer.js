@@ -43,6 +43,7 @@
             SuccessFunc: function (result) {
                 console.log(result.content);
                 if (result.isSuccess) {
+                    window.location.href = "/Home/Dashboard?userId=" + user_id;
                 }
                 else {
                 }

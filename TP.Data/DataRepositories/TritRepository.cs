@@ -25,8 +25,9 @@ namespace TP.Data.DataRepositories
         public List<TritOthersListModel> GetTritOthers(string user_id)
         {
             var param = new SqlParameter("@User_id", user_id);
+            var list = SqlQuery<TritOthersListModel>("SP_GetOhtersTrit", System.Data.CommandType.StoredProcedure, param).ToList();
 
-            return SqlQuery<TritOthersListModel>("SP_GetOhtersTrit", System.Data.CommandType.StoredProcedure, param).ToList();
+            return list;
         }
 
     }

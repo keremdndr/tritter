@@ -393,112 +393,122 @@
                                         <div class="m-portlet m-portlet--full-height ">
                                             <div class="m-portlet__body">
                                                 <div class="m-widget3">
-                                                    @foreach (var userModel in Model.TritListModel)
+                                                    @if (Model.TritListModel.Count == 0)
                                                     {
-                                                    <div class="m-widget3__item">
-                                                        <div class="m-widget3__header">
-                                                            <div class="m-widget3__user-img">
-                                                                <img class="m-widget3__img" src="~/Content/assets/app/media/img/users/user5.jpg" alt="">
-                                                            </div>
-                                                            <div class="m-widget3__info">
-                                                                <span class="m-widget3__username">
-                                                                     @Model.UserCreateModel.user_name @Model.UserCreateModel.user_surname
-                                                                </span>
-                                                                <br>
-                                                                <span class="m-widget3__time">
-                                                                    @userModel.trit_time.ToString("dd.MM.yyyy HH:mm")
-                                                                </span>
-                                                            </div>
-                                                            <div class="m-demo-icon__preview">
-                                                                <i class="flaticon-rocket"></i>
-                                                            </div>
-                                                            <div class="m-demo-icon__preview">
-                                                                <i class="la la-heart-o"></i>
-                                                            </div>
+                                                        <div class="m-widget3__item">
+                                                            <p>Gösterilecek Trit bulunamadı.</p>
                                                         </div>
-                                                        <div class="m-widget3__body">
-                                                            <p class="m-widget3__text">
-                                                                @userModel.trit_text
-                                                            </p>
-                                                        </div>
-                                                    </div>
                                                     }
+                                                    else
+                                                    {
+                                                        @foreach (var userModel in Model.TritListModel)
+                                                        {
+                                                            <div class="m-widget3__item">
+                                                                <div class="m-widget3__header">
+                                                                    <div class="m-widget3__user-img">
+                                                                        <img class="m-widget3__img" src="~/Content/assets/app/media/img/users/user5.jpg" alt="">
+                                                                    </div>
+                                                                    <div class="m-widget3__info">
+                                                                        <span class="m-widget3__username">
+                                                                            @Model.UserCreateModel.user_name @Model.UserCreateModel.user_surname
+                                                                        </span>
+                                                                        <br>
+                                                                        <span class="m-widget3__time">
+                                                                            @userModel.trit_time.ToString("dd.MM.yyyy HH:mm")
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="m-demo-icon__preview">
+                                                                        <i class="flaticon-rocket"></i>
+                                                                    </div>
+                                                                    <div class="m-demo-icon__preview">
+                                                                        <i class="la la-heart-o"></i>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="m-widget3__body">
+                                                                    <p class="m-widget3__text">
+                                                                        @userModel.trit_text
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    }
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <!--end:: Widgets/Support Tickets -->
                                         </div>
-                                        <!--end:: Widgets/Support Tickets -->
-                                    </div>
-                                    <div class="tab-pane " id="m_user_profile_tab_2">
-                                        <form class="m-form m-form--fit m-form--label-align-right">
-                                            <div class="m-portlet__body">
-                                                <div class="form-group m-form__group m--margin-top-10 m--hide">
-                                                    <div class="alert m-alert m-alert--default" role="alert">
-                                                        The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
+                                        <div class="tab-pane " id="m_user_profile_tab_2">
+                                            <form class="m-form m-form--fit m-form--label-align-right">
+                                                <div class="m-portlet__body">
+                                                    <div class="form-group m-form__group m--margin-top-10 m--hide">
+                                                        <div class="alert m-alert m-alert--default" role="alert">
+                                                            The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional classes.
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group m-form__group row">
-                                                    <div class="col-10 ml-auto">
-                                                        <h3 class="m-form__section">
-                                                            1. Personal Details
-                                                        </h3>
+                                                    <div class="form-group m-form__group row">
+                                                        <div class="col-10 ml-auto">
+                                                            <h3 class="m-form__section">
+                                                                1. Personal Details
+                                                            </h3>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group m-form__group row">
-                                                    <label for="example-text-input" class="col-2 col-form-label">
-                                                        Full Name
-                                                    </label>
-                                                    <div class="col-7">
-                                                        <input class="form-control m-input" type="text" value="Mark Andre">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group m-form__group row">
-                                                    <label for="example-text-input" class="col-2 col-form-label">
-                                                        Occupation
-                                                    </label>
-                                                    <div class="col-7">
-                                                        <input class="form-control m-input" type="text" value="CTO">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group m-form__group row">
-                                                    <label for="example-text-input" class="col-2 col-form-label">
-                                                        Company Name
-                                                    </label>
-                                                    <div class="col-7">
-                                                        <input class="form-control m-input" type="text" value="Keenthemes">
-                                                        <span class="m-form__help">
-                                                            If you want your invoices addressed to a company. Leave blank to use your full name.
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group m-form__group row">
-                                                    <label for="example-text-input" class="col-2 col-form-label">
-                                                        Phone No.
-                                                    </label>
-                                                    <div class="col-7">
-                                                        <input class="form-control m-input" type="text" value="+456669067890">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="m-portlet__foot m-portlet__foot--fit">
-                                                <div class="m-form__actions">
-                                                    <div class="row">
-                                                        <div class="col-2"></div>
+                                                    <div class="form-group m-form__group row">
+                                                        <label for="example-text-input" class="col-2 col-form-label">
+                                                            Full Name
+                                                        </label>
                                                         <div class="col-7">
-                                                            <button type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom">
-                                                                Save changes
-                                                            </button>
-                                                            &nbsp;&nbsp;
-                                                            <button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">
-                                                                Cancel
-                                                            </button>
+                                                            <input class="form-control m-input" type="text" value="Mark Andre">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group m-form__group row">
+                                                        <label for="example-text-input" class="col-2 col-form-label">
+                                                            Occupation
+                                                        </label>
+                                                        <div class="col-7">
+                                                            <input class="form-control m-input" type="text" value="CTO">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group m-form__group row">
+                                                        <label for="example-text-input" class="col-2 col-form-label">
+                                                            Company Name
+                                                        </label>
+                                                        <div class="col-7">
+                                                            <input class="form-control m-input" type="text" value="Keenthemes">
+                                                            <span class="m-form__help">
+                                                                If you want your invoices addressed to a company. Leave blank to use your full name.
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group m-form__group row">
+                                                        <label for="example-text-input" class="col-2 col-form-label">
+                                                            Phone No.
+                                                        </label>
+                                                        <div class="col-7">
+                                                            <input class="form-control m-input" type="text" value="+456669067890">
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </form>
-                                        <!--begin:: Widgets/Support Tickets -->
+                                                <div class="m-portlet__foot m-portlet__foot--fit">
+                                                    <div class="m-form__actions">
+                                                        <div class="row">
+                                                            <div class="col-2"></div>
+                                                            <div class="col-7">
+                                                                <button type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom">
+                                                                    Save changes
+                                                                </button>
+                                                                &nbsp;&nbsp;
+                                                                <button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">
+                                                                    Cancel
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <!--begin:: Widgets/Support Tickets -->
 
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -506,657 +516,657 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- end:: Body -->
-        <!-- begin::Footer -->
-        <footer class="m-grid__item		m-footer ">
-            <div class="m-container m-container--fluid m-container--full-height m-page__container">
-                <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
-                    <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
-                        <span class="m-footer__copyright">
-                            2017 &copy; Metronic theme by
-                            <a href="https://keenthemes.com" class="m-link">
-                                Keenthemes
-                            </a>
-                        </span>
-                    </div>
-                    <div class="m-stack__item m-stack__item--right m-stack__item--middle m-stack__item--first">
-                        <ul class="m-footer__nav m-nav m-nav--inline m--pull-right">
-                            <li class="m-nav__item">
-                                <a href="#" class="m-nav__link">
-                                    <span class="m-nav__link-text">
-                                        About
-                                    </span>
+            <!-- end:: Body -->
+            <!-- begin::Footer -->
+            <footer class="m-grid__item		m-footer ">
+                <div class="m-container m-container--fluid m-container--full-height m-page__container">
+                    <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
+                        <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
+                            <span class="m-footer__copyright">
+                                2017 &copy; Metronic theme by
+                                <a href="https://keenthemes.com" class="m-link">
+                                    Keenthemes
                                 </a>
-                            </li>
-                            <li class="m-nav__item">
-                                <a href="#" class="m-nav__link">
-                                    <span class="m-nav__link-text">
-                                        Privacy
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="m-nav__item">
-                                <a href="#" class="m-nav__link">
-                                    <span class="m-nav__link-text">
-                                        T&C
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="m-nav__item">
-                                <a href="#" class="m-nav__link">
-                                    <span class="m-nav__link-text">
-                                        Purchase
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="m-nav__item m-nav__item">
-                                <a href="#" class="m-nav__link" data-toggle="m-tooltip" title="Support Center" data-placement="left">
-                                    <i class="m-nav__link-icon flaticon-info m--icon-font-size-lg3"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- end::Footer -->
-    </div>
-    <!-- end:: Page -->
-    <!-- begin::Quick Sidebar -->
-    <div id="m_quick_sidebar" class="m-quick-sidebar m-quick-sidebar--tabbed m-quick-sidebar--skin-light">
-        <div class="m-quick-sidebar__content m--hide">
-            <span id="m_quick_sidebar_close" class="m-quick-sidebar__close">
-                <i class="la la-close"></i>
-            </span>
-            <ul id="m_quick_sidebar_tabs" class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" role="tablist">
-                <li class="nav-item m-tabs__item">
-                    <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_messenger" role="tab">
-                        Messages
-                    </a>
-                </li>
-                <li class="nav-item m-tabs__item">
-                    <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_settings" role="tab">
-                        Settings
-                    </a>
-                </li>
-                <li class="nav-item m-tabs__item">
-                    <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_logs" role="tab">
-                        Logs
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active m-scrollable" id="m_quick_sidebar_tabs_messenger" role="tabpanel">
-                    <div class="m-messenger m-messenger--message-arrow m-messenger--skin-light">
-                        <div class="m-messenger__messages">
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--in">
-                                    <div class="m-messenger__message-pic">
-                                        <img src="~/Content/assets/app/media/img//users/user3.jpg" alt="" />
-                                    </div>
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-username">
-                                                Megan wrote
-                                            </div>
-                                            <div class="m-messenger__message-text">
-                                                Hi Bob. What time will be the meeting ?
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--out">
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-text">
-                                                Hi Megan. It's at 2.30PM
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--in">
-                                    <div class="m-messenger__message-pic">
-                                        <img src="~/Content/assets/app/media/img//users/user3.jpg" alt="" />
-                                    </div>
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-username">
-                                                Megan wrote
-                                            </div>
-                                            <div class="m-messenger__message-text">
-                                                Will the development team be joining ?
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--out">
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-text">
-                                                Yes sure. I invited them as well
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__datetime">
-                                2:30PM
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--in">
-                                    <div class="m-messenger__message-pic">
-                                        <img src="~/Content/assets/app/media/img//users/user3.jpg" alt="" />
-                                    </div>
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-username">
-                                                Megan wrote
-                                            </div>
-                                            <div class="m-messenger__message-text">
-                                                Noted. For the Coca-Cola Mobile App project as well ?
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--out">
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-text">
-                                                Yes, sure.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--out">
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-text">
-                                                Please also prepare the quotation for the Loop CRM project as well.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__datetime">
-                                3:15PM
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--in">
-                                    <div class="m-messenger__message-no-pic m--bg-fill-danger">
-                                        <span>
-                                            M
+                            </span>
+                        </div>
+                        <div class="m-stack__item m-stack__item--right m-stack__item--middle m-stack__item--first">
+                            <ul class="m-footer__nav m-nav m-nav--inline m--pull-right">
+                                <li class="m-nav__item">
+                                    <a href="#" class="m-nav__link">
+                                        <span class="m-nav__link-text">
+                                            About
                                         </span>
-                                    </div>
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-username">
-                                                Megan wrote
-                                            </div>
-                                            <div class="m-messenger__message-text">
-                                                Noted. I will prepare it.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--out">
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-text">
-                                                Thanks Megan. I will see you later.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="m-messenger__wrapper">
-                                <div class="m-messenger__message m-messenger__message--in">
-                                    <div class="m-messenger__message-pic">
-                                        <img src="~/Content/assets/app/media/img//users/user3.jpg" alt="" />
-                                    </div>
-                                    <div class="m-messenger__message-body">
-                                        <div class="m-messenger__message-arrow"></div>
-                                        <div class="m-messenger__message-content">
-                                            <div class="m-messenger__message-username">
-                                                Megan wrote
-                                            </div>
-                                            <div class="m-messenger__message-text">
-                                                Sure. See you in the meeting soon.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="m-messenger__seperator"></div>
-                        <div class="m-messenger__form">
-                            <div class="m-messenger__form-controls">
-                                <input type="text" name="" placeholder="Type here~/Content." class="m-messenger__form-input">
-                            </div>
-                            <div class="m-messenger__form-tools">
-                                <a href="" class="m-messenger__form-attachment">
-                                    <i class="la la-paperclip"></i>
-                                </a>
-                            </div>
+                                    </a>
+                                </li>
+                                <li class="m-nav__item">
+                                    <a href="#" class="m-nav__link">
+                                        <span class="m-nav__link-text">
+                                            Privacy
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="m-nav__item">
+                                    <a href="#" class="m-nav__link">
+                                        <span class="m-nav__link-text">
+                                            T&C
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="m-nav__item">
+                                    <a href="#" class="m-nav__link">
+                                        <span class="m-nav__link-text">
+                                            Purchase
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="m-nav__item m-nav__item">
+                                    <a href="#" class="m-nav__link" data-toggle="m-tooltip" title="Support Center" data-placement="left">
+                                        <i class="m-nav__link-icon flaticon-info m--icon-font-size-lg3"></i>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane  m-scrollable" id="m_quick_sidebar_tabs_settings" role="tabpanel">
-                    <div class="m-list-settings">
-                        <div class="m-list-settings__group">
-                            <div class="m-list-settings__heading">
-                                General Settings
+            </footer>
+            <!-- end::Footer -->
+        </div>
+        <!-- end:: Page -->
+        <!-- begin::Quick Sidebar -->
+        <div id="m_quick_sidebar" class="m-quick-sidebar m-quick-sidebar--tabbed m-quick-sidebar--skin-light">
+            <div class="m-quick-sidebar__content m--hide">
+                <span id="m_quick_sidebar_close" class="m-quick-sidebar__close">
+                    <i class="la la-close"></i>
+                </span>
+                <ul id="m_quick_sidebar_tabs" class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" role="tablist">
+                    <li class="nav-item m-tabs__item">
+                        <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_quick_sidebar_tabs_messenger" role="tab">
+                            Messages
+                        </a>
+                    </li>
+                    <li class="nav-item m-tabs__item">
+                        <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_settings" role="tab">
+                            Settings
+                        </a>
+                    </li>
+                    <li class="nav-item m-tabs__item">
+                        <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_quick_sidebar_tabs_logs" role="tab">
+                            Logs
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active m-scrollable" id="m_quick_sidebar_tabs_messenger" role="tabpanel">
+                        <div class="m-messenger m-messenger--message-arrow m-messenger--skin-light">
+                            <div class="m-messenger__messages">
+                                <div class="m-messenger__wrapper">
+                                    <div class="m-messenger__message m-messenger__message--in">
+                                        <div class="m-messenger__message-pic">
+                                            <img src="~/Content/assets/app/media/img//users/user3.jpg" alt="" />
+                                        </div>
+                                        <div class="m-messenger__message-body">
+                                            <div class="m-messenger__message-arrow"></div>
+                                            <div class="m-messenger__message-content">
+                                                <div class="m-messenger__message-username">
+                                                    Megan wrote
+                                                </div>
+                                                <div class="m-messenger__message-text">
+                                                    Hi Bob. What time will be the meeting ?
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-messenger__wrapper">
+                                    <div class="m-messenger__message m-messenger__message--out">
+                                        <div class="m-messenger__message-body">
+                                            <div class="m-messenger__message-arrow"></div>
+                                            <div class="m-messenger__message-content">
+                                                <div class="m-messenger__message-text">
+                                                    Hi Megan. It's at 2.30PM
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-messenger__wrapper">
+                                    <div class="m-messenger__message m-messenger__message--in">
+                                        <div class="m-messenger__message-pic">
+                                            <img src="~/Content/assets/app/media/img//users/user3.jpg" alt="" />
+                                        </div>
+                                        <div class="m-messenger__message-body">
+                                            <div class="m-messenger__message-arrow"></div>
+                                            <div class="m-messenger__message-content">
+                                                <div class="m-messenger__message-username">
+                                                    Megan wrote
+                                                </div>
+                                                <div class="m-messenger__message-text">
+                                                    Will the development team be joining ?
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-messenger__wrapper">
+                                    <div class="m-messenger__message m-messenger__message--out">
+                                        <div class="m-messenger__message-body">
+                                            <div class="m-messenger__message-arrow"></div>
+                                            <div class="m-messenger__message-content">
+                                                <div class="m-messenger__message-text">
+                                                    Yes sure. I invited them as well
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-messenger__datetime">
+                                    2:30PM
+                                </div>
+                                <div class="m-messenger__wrapper">
+                                    <div class="m-messenger__message m-messenger__message--in">
+                                        <div class="m-messenger__message-pic">
+                                            <img src="~/Content/assets/app/media/img//users/user3.jpg" alt="" />
+                                        </div>
+                                        <div class="m-messenger__message-body">
+                                            <div class="m-messenger__message-arrow"></div>
+                                            <div class="m-messenger__message-content">
+                                                <div class="m-messenger__message-username">
+                                                    Megan wrote
+                                                </div>
+                                                <div class="m-messenger__message-text">
+                                                    Noted. For the Coca-Cola Mobile App project as well ?
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-messenger__wrapper">
+                                    <div class="m-messenger__message m-messenger__message--out">
+                                        <div class="m-messenger__message-body">
+                                            <div class="m-messenger__message-arrow"></div>
+                                            <div class="m-messenger__message-content">
+                                                <div class="m-messenger__message-text">
+                                                    Yes, sure.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-messenger__wrapper">
+                                    <div class="m-messenger__message m-messenger__message--out">
+                                        <div class="m-messenger__message-body">
+                                            <div class="m-messenger__message-arrow"></div>
+                                            <div class="m-messenger__message-content">
+                                                <div class="m-messenger__message-text">
+                                                    Please also prepare the quotation for the Loop CRM project as well.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-messenger__datetime">
+                                    3:15PM
+                                </div>
+                                <div class="m-messenger__wrapper">
+                                    <div class="m-messenger__message m-messenger__message--in">
+                                        <div class="m-messenger__message-no-pic m--bg-fill-danger">
+                                            <span>
+                                                M
+                                            </span>
+                                        </div>
+                                        <div class="m-messenger__message-body">
+                                            <div class="m-messenger__message-arrow"></div>
+                                            <div class="m-messenger__message-content">
+                                                <div class="m-messenger__message-username">
+                                                    Megan wrote
+                                                </div>
+                                                <div class="m-messenger__message-text">
+                                                    Noted. I will prepare it.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-messenger__wrapper">
+                                    <div class="m-messenger__message m-messenger__message--out">
+                                        <div class="m-messenger__message-body">
+                                            <div class="m-messenger__message-arrow"></div>
+                                            <div class="m-messenger__message-content">
+                                                <div class="m-messenger__message-text">
+                                                    Thanks Megan. I will see you later.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-messenger__wrapper">
+                                    <div class="m-messenger__message m-messenger__message--in">
+                                        <div class="m-messenger__message-pic">
+                                            <img src="~/Content/assets/app/media/img//users/user3.jpg" alt="" />
+                                        </div>
+                                        <div class="m-messenger__message-body">
+                                            <div class="m-messenger__message-arrow"></div>
+                                            <div class="m-messenger__message-content">
+                                                <div class="m-messenger__message-username">
+                                                    Megan wrote
+                                                </div>
+                                                <div class="m-messenger__message-text">
+                                                    Sure. See you in the meeting soon.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="m-list-settings__item">
-                                <span class="m-list-settings__item-label">
-                                    Email Notifications
-                                </span>
-                                <span class="m-list-settings__item-control">
-                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-                                        <label>
-                                            <input type="checkbox" checked="checked" name="">
-                                            <span></span>
-                                        </label>
-                                    </span>
-                                </span>
-                            </div>
-                            <div class="m-list-settings__item">
-                                <span class="m-list-settings__item-label">
-                                    Site Tracking
-                                </span>
-                                <span class="m-list-settings__item-control">
-                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-                                        <label>
-                                            <input type="checkbox" name="">
-                                            <span></span>
-                                        </label>
-                                    </span>
-                                </span>
-                            </div>
-                            <div class="m-list-settings__item">
-                                <span class="m-list-settings__item-label">
-                                    SMS Alerts
-                                </span>
-                                <span class="m-list-settings__item-control">
-                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-                                        <label>
-                                            <input type="checkbox" name="">
-                                            <span></span>
-                                        </label>
-                                    </span>
-                                </span>
-                            </div>
-                            <div class="m-list-settings__item">
-                                <span class="m-list-settings__item-label">
-                                    Backup Storage
-                                </span>
-                                <span class="m-list-settings__item-control">
-                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-                                        <label>
-                                            <input type="checkbox" name="">
-                                            <span></span>
-                                        </label>
-                                    </span>
-                                </span>
-                            </div>
-                            <div class="m-list-settings__item">
-                                <span class="m-list-settings__item-label">
-                                    Audit Logs
-                                </span>
-                                <span class="m-list-settings__item-control">
-                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-                                        <label>
-                                            <input type="checkbox" checked="checked" name="">
-                                            <span></span>
-                                        </label>
-                                    </span>
-                                </span>
+                            <div class="m-messenger__seperator"></div>
+                            <div class="m-messenger__form">
+                                <div class="m-messenger__form-controls">
+                                    <input type="text" name="" placeholder="Type here~/Content." class="m-messenger__form-input">
+                                </div>
+                                <div class="m-messenger__form-tools">
+                                    <a href="" class="m-messenger__form-attachment">
+                                        <i class="la la-paperclip"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div class="m-list-settings__group">
-                            <div class="m-list-settings__heading">
-                                System Settings
+                    </div>
+                    <div class="tab-pane  m-scrollable" id="m_quick_sidebar_tabs_settings" role="tabpanel">
+                        <div class="m-list-settings">
+                            <div class="m-list-settings__group">
+                                <div class="m-list-settings__heading">
+                                    General Settings
+                                </div>
+                                <div class="m-list-settings__item">
+                                    <span class="m-list-settings__item-label">
+                                        Email Notifications
+                                    </span>
+                                    <span class="m-list-settings__item-control">
+                                        <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                            <label>
+                                                <input type="checkbox" checked="checked" name="">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="m-list-settings__item">
+                                    <span class="m-list-settings__item-label">
+                                        Site Tracking
+                                    </span>
+                                    <span class="m-list-settings__item-control">
+                                        <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                            <label>
+                                                <input type="checkbox" name="">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="m-list-settings__item">
+                                    <span class="m-list-settings__item-label">
+                                        SMS Alerts
+                                    </span>
+                                    <span class="m-list-settings__item-control">
+                                        <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                            <label>
+                                                <input type="checkbox" name="">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="m-list-settings__item">
+                                    <span class="m-list-settings__item-label">
+                                        Backup Storage
+                                    </span>
+                                    <span class="m-list-settings__item-control">
+                                        <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                            <label>
+                                                <input type="checkbox" name="">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="m-list-settings__item">
+                                    <span class="m-list-settings__item-label">
+                                        Audit Logs
+                                    </span>
+                                    <span class="m-list-settings__item-control">
+                                        <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                            <label>
+                                                <input type="checkbox" checked="checked" name="">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </span>
+                                </div>
                             </div>
-                            <div class="m-list-settings__item">
-                                <span class="m-list-settings__item-label">
+                            <div class="m-list-settings__group">
+                                <div class="m-list-settings__heading">
+                                    System Settings
+                                </div>
+                                <div class="m-list-settings__item">
+                                    <span class="m-list-settings__item-label">
+                                        System Logs
+                                    </span>
+                                    <span class="m-list-settings__item-control">
+                                        <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                            <label>
+                                                <input type="checkbox" name="">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="m-list-settings__item">
+                                    <span class="m-list-settings__item-label">
+                                        Error Reporting
+                                    </span>
+                                    <span class="m-list-settings__item-control">
+                                        <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                            <label>
+                                                <input type="checkbox" name="">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="m-list-settings__item">
+                                    <span class="m-list-settings__item-label">
+                                        Applications Logs
+                                    </span>
+                                    <span class="m-list-settings__item-control">
+                                        <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                            <label>
+                                                <input type="checkbox" name="">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="m-list-settings__item">
+                                    <span class="m-list-settings__item-label">
+                                        Backup Servers
+                                    </span>
+                                    <span class="m-list-settings__item-control">
+                                        <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                            <label>
+                                                <input type="checkbox" checked="checked" name="">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="m-list-settings__item">
+                                    <span class="m-list-settings__item-label">
+                                        Audit Logs
+                                    </span>
+                                    <span class="m-list-settings__item-control">
+                                        <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
+                                            <label>
+                                                <input type="checkbox" name="">
+                                                <span></span>
+                                            </label>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane  m-scrollable" id="m_quick_sidebar_tabs_logs" role="tabpanel">
+                        <div class="m-list-timeline">
+                            <div class="m-list-timeline__group">
+                                <div class="m-list-timeline__heading">
                                     System Logs
-                                </span>
-                                <span class="m-list-settings__item-control">
-                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-                                        <label>
-                                            <input type="checkbox" name="">
-                                            <span></span>
-                                        </label>
-                                    </span>
-                                </span>
+                                </div>
+                                <div class="m-list-timeline__items">
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            12 new users registered
+                                            <span class="m-badge m-badge--warning m-badge--wide">
+                                                important
+                                            </span>
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            Just now
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            System shutdown
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            11 mins
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-danger"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            New invoice received
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            20 mins
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            Database overloaded 89%
+                                            <span class="m-badge m-badge--success m-badge--wide">
+                                                resolved
+                                            </span>
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            1 hr
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            System error
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            2 hrs
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            Production server down
+                                            <span class="m-badge m-badge--danger m-badge--wide">
+                                                pending
+                                            </span>
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            3 hrs
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            Production server up
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            5 hrs
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="m-list-settings__item">
-                                <span class="m-list-settings__item-label">
-                                    Error Reporting
-                                </span>
-                                <span class="m-list-settings__item-control">
-                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-                                        <label>
-                                            <input type="checkbox" name="">
-                                            <span></span>
-                                        </label>
-                                    </span>
-                                </span>
-                            </div>
-                            <div class="m-list-settings__item">
-                                <span class="m-list-settings__item-label">
+                            <div class="m-list-timeline__group">
+                                <div class="m-list-timeline__heading">
                                     Applications Logs
-                                </span>
-                                <span class="m-list-settings__item-control">
-                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-                                        <label>
-                                            <input type="checkbox" name="">
-                                            <span></span>
-                                        </label>
-                                    </span>
-                                </span>
-                            </div>
-                            <div class="m-list-settings__item">
-                                <span class="m-list-settings__item-label">
-                                    Backup Servers
-                                </span>
-                                <span class="m-list-settings__item-control">
-                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-                                        <label>
-                                            <input type="checkbox" checked="checked" name="">
-                                            <span></span>
-                                        </label>
-                                    </span>
-                                </span>
-                            </div>
-                            <div class="m-list-settings__item">
-                                <span class="m-list-settings__item-label">
-                                    Audit Logs
-                                </span>
-                                <span class="m-list-settings__item-control">
-                                    <span class="m-switch m-switch--outline m-switch--icon-check m-switch--brand">
-                                        <label>
-                                            <input type="checkbox" name="">
-                                            <span></span>
-                                        </label>
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane  m-scrollable" id="m_quick_sidebar_tabs_logs" role="tabpanel">
-                    <div class="m-list-timeline">
-                        <div class="m-list-timeline__group">
-                            <div class="m-list-timeline__heading">
-                                System Logs
-                            </div>
-                            <div class="m-list-timeline__items">
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        12 new users registered
-                                        <span class="m-badge m-badge--warning m-badge--wide">
-                                            important
+                                </div>
+                                <div class="m-list-timeline__items">
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            New order received
+                                            <span class="m-badge m-badge--info m-badge--wide">
+                                                urgent
+                                            </span>
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            7 hrs
                                         </span>
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        Just now
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        System shutdown
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        11 mins
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-danger"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        New invoice received
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        20 mins
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        Database overloaded 89%
-                                        <span class="m-badge m-badge--success m-badge--wide">
-                                            resolved
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            12 new users registered
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            Just now
                                         </span>
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        1 hr
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        System error
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        2 hrs
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        Production server down
-                                        <span class="m-badge m-badge--danger m-badge--wide">
-                                            pending
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            System shutdown
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            11 mins
                                         </span>
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        3 hrs
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        Production server up
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        5 hrs
-                                    </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-danger"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            New invoices received
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            20 mins
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            Database overloaded 89%
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            1 hr
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            System error
+                                            <span class="m-badge m-badge--info m-badge--wide">
+                                                pending
+                                            </span>
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            2 hrs
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            Production server down
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            3 hrs
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="m-list-timeline__group">
-                            <div class="m-list-timeline__heading">
-                                Applications Logs
-                            </div>
-                            <div class="m-list-timeline__items">
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        New order received
-                                        <span class="m-badge m-badge--info m-badge--wide">
-                                            urgent
+                            <div class="m-list-timeline__group">
+                                <div class="m-list-timeline__heading">
+                                    Server Logs
+                                </div>
+                                <div class="m-list-timeline__items">
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            Production server up
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            5 hrs
                                         </span>
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        7 hrs
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        12 new users registered
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        Just now
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        System shutdown
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        11 mins
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-danger"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        New invoices received
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        20 mins
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        Database overloaded 89%
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        1 hr
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        System error
-                                        <span class="m-badge m-badge--info m-badge--wide">
-                                            pending
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            New order received
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            7 hrs
                                         </span>
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        2 hrs
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        Production server down
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        3 hrs
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="m-list-timeline__group">
-                            <div class="m-list-timeline__heading">
-                                Server Logs
-                            </div>
-                            <div class="m-list-timeline__items">
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        Production server up
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        5 hrs
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        New order received
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        7 hrs
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        12 new users registered
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        Just now
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        System shutdown
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        11 mins
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-danger"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        New invoice received
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        20 mins
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        Database overloaded 89%
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        1 hr
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        System error
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        2 hrs
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        Production server down
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        3 hrs
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        Production server up
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        5 hrs
-                                    </span>
-                                </div>
-                                <div class="m-list-timeline__item">
-                                    <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
-                                    <a href="" class="m-list-timeline__text">
-                                        New order received
-                                    </a>
-                                    <span class="m-list-timeline__time">
-                                        1117 hrs
-                                    </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            12 new users registered
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            Just now
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            System shutdown
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            11 mins
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-danger"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            New invoice received
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            20 mins
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-warning"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            Database overloaded 89%
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            1 hr
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            System error
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            2 hrs
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            Production server down
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            3 hrs
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-success"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            Production server up
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            5 hrs
+                                        </span>
+                                    </div>
+                                    <div class="m-list-timeline__item">
+                                        <span class="m-list-timeline__badge m-list-timeline__badge--state-info"></span>
+                                        <a href="" class="m-list-timeline__text">
+                                            New order received
+                                        </a>
+                                        <span class="m-list-timeline__time">
+                                            1117 hrs
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1164,54 +1174,53 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- end::Quick Sidebar -->
-    <!-- begin::Scroll Top -->
-    <!-- begin::Quick Nav -->
-    <!--begin::Base Scripts -->
-    <!-- end:: Page -->
-    <!-- begin::Quick Sidebar -->
-    <!-- end::Quick Sidebar -->
-    <!-- begin::Scroll Top -->
-    <!-- begin::Quick Nav -->
-    <!--begin::Base Scripts -->
-    <script src="~//Content/assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
-    <script src="~//Content/assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
-    <!--end::Base Scripts -->
-    <!--begin::Page Vendors -->
-    <script src="~//Content/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
-    <!--end::Page Vendors -->
-    <!--begin::Page Snippets -->
-    <script src="~//Content/assets/app/js/dashboard.js" type="text/javascript"></script>
-    <script src="~//Content/Scripts/Internal/TP.Agent.Customer.js"></script>
-    <script src="~//Content/Scripts/Internal/TP.Agent.js"></script>
-    <script src="~//Content/Scripts/Internal/TP.Agent.Data.js"></script>
-    <script src="~//Content/Scripts/Internal/TP.Agent.Home.js"></script>
-    <script src="~//Content/Scripts/Internal/TP.Agent.Ui.js"></script>
-    <script src="~//Content/jquery/jquery-3.3.1.min.js"></script>
+        <!-- end::Quick Sidebar -->
+        <!-- begin::Scroll Top -->
+        <!-- begin::Quick Nav -->
+        <!--begin::Base Scripts -->
+        <!-- end:: Page -->
+        <!-- begin::Quick Sidebar -->
+        <!-- end::Quick Sidebar -->
+        <!-- begin::Scroll Top -->
+        <!-- begin::Quick Nav -->
+        <!--begin::Base Scripts -->
+        <script src="~//Content/assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
+        <script src="~//Content/assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
+        <!--end::Base Scripts -->
+        <!--begin::Page Vendors -->
+        <script src="~//Content/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
+        <!--end::Page Vendors -->
+        <!--begin::Page Snippets -->
+        <script src="~//Content/assets/app/js/dashboard.js" type="text/javascript"></script>
+        <script src="~//Content/Scripts/Internal/TP.Agent.Customer.js"></script>
+        <script src="~//Content/Scripts/Internal/TP.Agent.js"></script>
+        <script src="~//Content/Scripts/Internal/TP.Agent.Data.js"></script>
+        <script src="~//Content/Scripts/Internal/TP.Agent.Home.js"></script>
+        <script src="~//Content/Scripts/Internal/TP.Agent.Ui.js"></script>
+        <script src="~//Content/jquery/jquery-3.3.1.min.js"></script>
 
-    <script src="~//Content/jquery/jquery-3.3.1.min.js"></script>
+        <script src="~//Content/jquery/jquery-3.3.1.min.js"></script>
 
-    <script src="~//Content/Scripts/Internal/TP.Agent.js"></script>
-    <script src="~//Content/Scripts/Internal/TP.Agent.Core.js"></script>
-    <script src="~//Content/Scripts/Internal/TP.Agent.Data.js"></script>
-    <script src="~//Content/Scripts/Internal/TP.Agent.Ui.js"></script>
-    <script src="~//Content/Scripts/Internal/TP.Agent.Home.js"></script>
-    <script src="~//Content/Scripts/Internal/TP.Agent.Customer.js"></script>
-    <script src="~//Content/Scripts/Internal/TP.Agent.CustomerFunc.js"></script>
+        <script src="~//Content/Scripts/Internal/TP.Agent.js"></script>
+        <script src="~//Content/Scripts/Internal/TP.Agent.Core.js"></script>
+        <script src="~//Content/Scripts/Internal/TP.Agent.Data.js"></script>
+        <script src="~//Content/Scripts/Internal/TP.Agent.Ui.js"></script>
+        <script src="~//Content/Scripts/Internal/TP.Agent.Home.js"></script>
+        <script src="~//Content/Scripts/Internal/TP.Agent.Customer.js"></script>
+        <script src="~//Content/Scripts/Internal/TP.Agent.CustomerFunc.js"></script>
 
-    <link href="~//Content/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~//Content/assets/bootstrap/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
-    <link href="~//Content/assets/bootstrap/components.min.css" rel="stylesheet" type="text/css" />
-    <link href="~//Content/assets/bootstrap/custom.min.css" rel="stylesheet" type="text/css" />
-    <link href="~//Content/assets/bootstrap/darkblue.min.css" rel="stylesheet" type="text/css" />
-    <link href="~//Content/assets/bootstrap/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="~//Content/assets/bootstrap/layout.min.css" rel="stylesheet" type="text/css" />
-    <link href="~//Content/assets/bootstrap/plugins.min.css" rel="stylesheet" type="text/css" />
-    <link href="~//Content/assets/bootstrap/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
-    <!--end::Base Scripts -->
-</body>
-<!-- end::Body -->
+        <link href="~//Content/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="~//Content/assets/bootstrap/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+        <link href="~//Content/assets/bootstrap/components.min.css" rel="stylesheet" type="text/css" />
+        <link href="~//Content/assets/bootstrap/custom.min.css" rel="stylesheet" type="text/css" />
+        <link href="~//Content/assets/bootstrap/darkblue.min.css" rel="stylesheet" type="text/css" />
+        <link href="~//Content/assets/bootstrap/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="~//Content/assets/bootstrap/layout.min.css" rel="stylesheet" type="text/css" />
+        <link href="~//Content/assets/bootstrap/plugins.min.css" rel="stylesheet" type="text/css" />
+        <link href="~//Content/assets/bootstrap/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <!--end::Base Scripts -->
+    </body>
+    <!-- end::Body -->
 </html>
 
 
