@@ -1,62 +1,237 @@
-﻿@functions{
-    bool IsCurrentMenu(params string[] names)
-    {
-        bool result = false;
-        if (names != null && names.Length > 0)
-        {
-            string path = Context?.Request?.Path;
-            if (path != null)
-            {
-                string controllerName = path.Split("/").Where(r => r != String.Empty).FirstOrDefault();
-                result = names.Contains(controllerName);
-            }
-        }
-        return result;
-    }
-    string AddActiveMenuClassIfCurrentMenu(params string[] names)
-    {
-        if (IsCurrentMenu(names))
-        {
-            return "m-menu__item--active";
-        }
-        else
-        {
-            return String.Empty;
-        }
-    }
-}
+﻿
 <!DOCTYPE html>
-<html>
+<!--
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<html lang="en">
 <!-- begin::Head -->
 <head>
     <meta charset="utf-8" />
     <title>
-        Tritter
+        Metronic | Dashboard
     </title>
-    <link rel="icon" type="image/png" href="~/Content/assets/app/media/img/favicon.png" sizes="96x96" />
+    <meta name="description" content="Latest updates and statistic charts">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--begin::Web font -->
-    <script src="~/Content/font/webfont.js"></script>
-    <script>
-        WebFont.load({
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script>WebFont.load({
             google: { "families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"] },
             active: function () {
                 sessionStorage.fonts = true;
             }
-        });
-    </script>
+        });</script>
     <!--end::Web font -->
     <!--begin::Base Styles -->
     <!--begin::Page Vendors -->
     <link href="~/Content/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Page Vendors -->
     <link href="~/Content/assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Base Styles -->
-    <script src="~/Content/jquery/jquery-3.3.1.min.js"></script>
+    <link rel="shortcut icon" href="~/Content/assets/demo/default/media/img/logo/favicon.ico" />
+</head>
+<!-- end::Head -->
+<!-- end::Body -->
+<body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default m-brand--minimize m-aside-left--minimize col-lg-12">
+    <!-- begin:: Page -->
+    <div class="m-grid m-grid--hor m-grid--root m-page">
+        <!-- BEGIN: Header -->
+        <header id="m_header" class="m-grid__item    m-header " m-minimize-offset="200" m-minimize-mobile-offset="200">
+            <div class="m-container m-container--fluid m-container--full-height">
+                <div class="m-stack m-stack--ver m-stack--desktop">
+                    <!-- BEGIN: Brand -->
+                    <!-- END: Brand -->
+                    <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
+                        <!-- BEGIN: Horizontal Menu -->
+                        <button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-dark " id="m_aside_header_menu_mobile_close_btn">
+                            <i class="la la-close"></i>
+                        </button>
+                        <div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
+                            <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
+                                <li onclick="window.location.href='/Home/Dashboard?userId=@ViewBag.UserId'" class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true">
+                                    <a class="m-menu__link m-menu__toggle">
+                                        <i class="m-menu__link-icon flaticon-add"></i>
+                                        <span class="m-menu__link-text">
+                                            Ana Sayfa
+                                        </span>
+                                    </a>
+                                </li>
+                                <li onclick="window.location.href='/Home/Profile?userId=@ViewBag.UserId'" class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true">
+                                    <a class="m-menu__link m-menu__toggle">
+                                        <i class="m-menu__link-icon flaticon-add"></i>
+                                        <span class="m-menu__link-text">
+                                            Profilim
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true">
+                                    <a href="javascript:;" class="m-menu__link m-menu__toggle">
+                                        <i class="m-menu__link-icon flaticon-paper-plane"></i>
+                                        <span class="m-menu__link-title">
+                                            <span class="m-menu__link-text">
+                                                Yeni Trit
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END: Horizontal Menu -->                               <!-- BEGIN: Topbar -->
+                        <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general m-stack--fluid">
+                            <div class="m-stack__item m-topbar__nav-wrapper">
+                                <ul class="m-topbar__nav m-nav m-nav--inline">
+                                    <li class="
+            m-nav__item m-dropdown m-dropdown--large m-dropdown--arrow m-dropdown--align-center m-dropdown--mobile-full-width m-dropdown--skin-light    m-list-search m-list-search--skin-light"
+                                        m-dropdown-toggle="click" id="m_quicksearch" m-quicksearch-mode="dropdown" m-dropdown-persistent="1">
+                                        <a href="#" class="m-nav__link m-dropdown__toggle">
+                                            <span class="m-nav__link-icon">
+                                                <i class="flaticon-search-1"></i>
+                                            </span>
+                                        </a>
+                                        <div class="m-dropdown__wrapper">
+                                            <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
+                                            <div class="m-dropdown__inner ">
+                                                <div class="m-dropdown__header">
+                                                    <form class="m-list-search__form">
+                                                        <div class="m-list-search__form-wrapper">
+                                                            <span class="m-list-search__form-input-wrapper">
+                                                                <input id="m_quicksearch_input" autocomplete="off" type="text" name="q" class="m-list-search__form-input" value="" placeholder="Search...">
+                                                            </span>
+                                                            <span class="m-list-search__form-icon-close" id="m_quicksearch_close">
+                                                                <i class="la la-remove"></i>
+                                                            </span>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="m-dropdown__body">
+                                                    <div class="m-dropdown__scrollable m-scrollable" data-scrollable="true" data-max-height="300" data-mobile-max-height="200">
+                                                        <div class="m-dropdown__content"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+                                        <a href="#" class="m-nav__link m-dropdown__toggle">
+                                            <span class="m-topbar__userpic">
+                                                <img src="~/Content/assets/app/media/img/favicon.png" class="m--img-rounded m--marginless m--img-centered" alt="" />
+                                            </span>
+                                            <span class="m-topbar__username m--hide">
+                                                Nick
+                                            </span>
+                                        </a>
+                                        <div class="m-dropdown__wrapper">
+                                            <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                            <div class="m-dropdown__inner">
+                                                <div class="m-dropdown__header m--align-center" style="background: url(~/Content/assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
+                                                    <div class="m-card-user m-card-user--skin-dark">
+                                                        <div class="m-card-user__pic">
+                                                            <img src="~/Content/assets/app/media/img/favicon.png" class="m--img-rounded m--marginless" alt="" />
+                                                        </div>
+                                                        <div class="m-card-user__details">
+                                                            <span class="m-card-user__name m--font-weight-500">
+                                                                @ViewBag.FullName
+                                                            </span>
+                                                            <span class="m--font-weight-100">
+                                                                @ViewBag.Email
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="m-dropdown__body">
+                                                    <div class="m-dropdown__content">
+                                                        <ul class="m-nav m-nav--skin-light">
+                                                            <li class="m-nav__section m--hide">
+                                                                <span class="m-nav__section-text">
+                                                                    Section
+                                                                </span>
+                                                            </li>
+                                                            <li class="m-nav__item">
+                                                                <a href="/Home/Profile?userId=@ViewBag.UserId" class="m-nav__link">
+                                                                    <i class="m-nav__link-icon flaticon-profile-1"></i>
+                                                                    <span class="m-nav__link-title">
+                                                                        <span class="m-nav__link-wrap">
+                                                                            <span class="m-nav__link-text">
+                                                                                Profilim
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="m-nav__separator m-nav__separator--fit"></li>
+                                                            <li class="m-nav__item">
+                                                                <a href="snippets/pages/user/login-1.html" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                                                                    Logout
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- END: Topbar -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- END: Header -->
+        <!-- begin::Body -->
+        <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
 
+            <div class="m-grid__item m-grid__item--fluid m-wrapper">
+                @RenderBody()
+            </div>
+        </div>
+        <!-- end:: Body -->
+        <!-- begin::Footer -->
+        <footer class="m-grid__item     m-footer " style="margin:0">
+            <div class="m-container m-container--fluid m-container--full-height m-page__container">
+                <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
+                    <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
+                        <span class="m-footer__copyright">
+                            2017 &copy; AMK Software
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end::Footer -->
+    </div>
+    <!-- end:: Page -->
+    <!-- begin::Quick Sidebar -->
+    <!-- end::Quick Sidebar -->
+    <!-- begin::Scroll Top -->
+    <!-- begin::Quick Nav -->
+    <!--begin::Base Scripts -->
+    <script src="~/Content/assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
+    <script src="~/Content/assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
+    <!--end::Base Scripts -->
+    <!--begin::Page Vendors -->
+    <script src="~/Content/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
+    <!--end::Page Vendors -->
+    <!--begin::Page Snippets -->
+    <script src="~/Content/assets/app/js/dashboard.js" type="text/javascript"></script>
+    <script src="~/Content/Scripts/Internal/TP.Agent.Customer.js"></script>
+    <script src="~/Content/Scripts/Internal/TP.Agent.js"></script>
+    <script src="~/Content/Scripts/Internal/TP.Agent.Data.js"></script>
+    <script src="~/Content/Scripts/Internal/TP.Agent.Home.js"></script>
+    <script src="~/Content/Scripts/Internal/TP.Agent.Ui.js"></script>
+    <script src="~/Content/jquery/jquery-3.3.1.min.js"></script>
+    <script src="~/Content/jquery/jquery-3.3.1.min.js"></script>
     <script src="~/Content/Scripts/Internal/TP.Agent.js"></script>
     <script src="~/Content/Scripts/Internal/TP.Agent.Core.js"></script>
     <script src="~/Content/Scripts/Internal/TP.Agent.Data.js"></script>
@@ -64,8 +239,6 @@
     <script src="~/Content/Scripts/Internal/TP.Agent.Home.js"></script>
     <script src="~/Content/Scripts/Internal/TP.Agent.Customer.js"></script>
     <script src="~/Content/Scripts/Internal/TP.Agent.CustomerFunc.js"></script>
-    <script src="~/Content/Scripts/External/PhoneX.v1.1.5.js"></script>
-
     <link href="~/Content/assets/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/assets/bootstrap/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/assets/bootstrap/components.min.css" rel="stylesheet" type="text/css" />
@@ -75,116 +248,24 @@
     <link href="~/Content/assets/bootstrap/layout.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/assets/bootstrap/plugins.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/assets/bootstrap/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
-
-
-</head>
-<!-- end::Head -->
-<!-- end::Body -->
-<body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
-
-    <!-- begin:: Page -->
-    <div class="m-grid m-grid--hor m-grid--root m-page">
-        <!-- BEGIN: Header -->
-        @*<header id="m_header" class="m-grid__item  m-header  " m-minimize-offset="200" m-minimize-mobile-offset="200">
-            <div class="m-container m-container--fluid m-container--full-height">
-                <div class="m-stack m-stack--ver m-stack--desktop">
-                    <!-- BEGIN: Brand -->
-                    
-                    <!-- END: Brand -->
-
-                    <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
-                        <!-- BEGIN: Topbar -->
-                        <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general m-stack--fluid">
-                            <div class="m-stack__item m-topbar__nav-wrapper">
-                                <ul class="m-topbar__nav m-nav m-nav--inline">
-                                    <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
-                                        <text id="UserNameSurname" class="m-card-user__name m--font-weight-600" style="font-size: larger">
-                                            <br />
-                                            @ViewBag.CustomerFullName
-                                        </text>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- END: Topbar -->
-                    </div>
-                </div>
-            </div>
-
-        </header>*@
-        <!-- END: Header -->
-        <!-- begin::Body -->
-        <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
-
-            <div class="m-grid__item m-grid__item--fluid m-wrapper">
-                @Html.Partial("_Notification")
-                @RenderBody()
-            </div>
-        </div>
-        <!-- end:: Body -->
-        <!-- begin::Footer -->
-        @*<footer class="m-grid__item		m-footer " style="">
-            <div class="m-container m-container--fluid m-container--full-height m-page__container">
-                <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
-                    <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
-                        <span class="m-footer__copyright">
-                            2018 &copy; AMK Software
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </footer>*@
-        <!-- end::Footer -->
-    </div>
-    <!-- end:: Page -->
-    <!-- begin::Scroll Top -->
-    @*<div id="m_scroll_top" class="m-scroll-top">
-        <i class="la la-arrow-up"></i>
-    </div>*@
-    <!-- end::Scroll Top -->
-    <!--begin::Base Scripts -->
-    <script src="~/Content/assets/vendors/base/vendors.bundle.js" type="text/javascript"></script> 
+    <!--end::Page Snippets -->
+    @*<script>
+            $(document).ready(function () {
+                TP.Customer.GetTrits('2af12943-5608-4f24-8a7a-d6f6daab06ae')
+            });
+        </script>*@
+    <script src="~/Content/font/webfont.js"></script>
+    <script>WebFont.load({
+                google: { "families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"] },
+                active: function () {
+                    sessionStorage.fonts = true;
+                }
+            });</script>
+    <script src="~/Content/assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
     <!--end::Base Scripts -->
-     
     <script src="~/Content/assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
 </body>
+
 <!-- end::Body -->
 </html>
-<script>
-        $(function () {
 
-            //partial  view validasyon kontrolü için
-            //$(document).ajaxComplete(function () {
-            //    $.validator.unobtrusive.parse(document);
-            //});
-
-            //silme modalı için yazıldı
-            $(document).on("click",
-                ".deleteDataButton",
-                function () {
-
-                    var confirmLink = $(this).attr("data-confirmLink");
-
-                    $("#removeWarning").modal({});
-
-                    $("#btnRemoveData").on("click",
-                        function () {
-                            window.location.href = confirmLink;
-                        });
-
-                });
-
-            @*window.onerror = function (messageOrEvent, source, lineno, colno, error) {
-
-                var client = new exceptionless.ExceptionlessClient({
-                    apiKey: '@System.Configuration.ConfigurationManager.AppSettings["Exceptionless:ApiKey"]',
-                    serverUrl: '@System.Configuration.ConfigurationManager.AppSettings["Exceptionless:ServerUrl"]',
-                    submissionBatchSize: 100
-                });
-
-                error.message = "Source :" + source + " Line Number: " + lineno + "\n Column Number: " + colno + " \n Message or Event: " + messageOrEvent + " \n Message: " + error.message;
-
-                client.submitException(error);
-            }*@
-        });
-</script>

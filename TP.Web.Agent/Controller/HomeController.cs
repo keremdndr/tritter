@@ -77,8 +77,9 @@ namespace TP.Web.Agent.Controllers
             else
                 throw new Exception(tritResult.Message);
 
-
-            return View(dashboardPageUserModel);
+            ViewBag.FullName = dashboardPageUserModel.UserCreateModel.user_name + " " + dashboardPageUserModel.UserCreateModel.user_surname;
+            ViewBag.Email = dashboardPageUserModel.UserCreateModel.user_email;
+                return View(dashboardPageUserModel);
         }
 
 
@@ -167,7 +168,8 @@ namespace TP.Web.Agent.Controllers
             else
                 throw new Exception(tritResult.Message);
 
-
+            ViewBag.FullName = profilePageUserModel.UserCreateModel.user_name + " " + profilePageUserModel.UserCreateModel.user_surname;
+            ViewBag.Email = profilePageUserModel.UserCreateModel.user_email;
             return View(profilePageUserModel);
         }
 
