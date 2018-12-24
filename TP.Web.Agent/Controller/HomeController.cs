@@ -67,15 +67,15 @@ namespace TP.Web.Agent.Controllers
             {
                 dashboardPageUserModel.UserCreateModel = userResult.Data;
             }
-            else
-                throw new Exception(userResult.Message);
 
-            if (userResult.IsSuccess)
+            if (tritResult.IsSuccess)
             {
                 dashboardPageUserModel.TritOthersListModel = tritResult.Data;
             }
             else
-                throw new Exception(tritResult.Message);
+            {
+                ViewBag.ListIsExist = 0;
+            }
 
             ViewBag.FullName = dashboardPageUserModel.UserCreateModel.user_name + " " + dashboardPageUserModel.UserCreateModel.user_surname;
             ViewBag.Email = dashboardPageUserModel.UserCreateModel.user_email;
@@ -135,14 +135,9 @@ namespace TP.Web.Agent.Controllers
 
             var result = _tritEngine.Create(tritCreateModel);
 
-            if (result.IsSuccess == true)
-            {
-                return View("Dashboard", user_id);
-            }
-            else
-            {
-                return Json(result);
-            }
+
+            return Json(result);
+
             
 
         }
@@ -158,15 +153,15 @@ namespace TP.Web.Agent.Controllers
             {
                 profilePageUserModel.UserCreateModel = userResult.Data;
             }
-            else
-                throw new Exception(userResult.Message);
 
             if (userResult.IsSuccess)
             {
                 profilePageUserModel.TritListModel = tritResult.Data;
             }
             else
-                throw new Exception(tritResult.Message);
+            {
+                ViewBag.ListIsExist = 0;
+            }
 
             ViewBag.FullName = profilePageUserModel.UserCreateModel.user_name + " " + profilePageUserModel.UserCreateModel.user_surname;
             ViewBag.Email = profilePageUserModel.UserCreateModel.user_email;

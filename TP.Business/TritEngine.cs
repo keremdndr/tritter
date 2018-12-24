@@ -153,8 +153,7 @@ namespace TP.Business
             catch (Exception ex)
             {
                 result.IsSuccess = false;
-                result.Message = Keywords.ListReadError;
-                throw ex;
+                result.Message = "Gösterilecek trit bulunamadı.";
             }
             return result;
         }
@@ -165,8 +164,6 @@ namespace TP.Business
 
             try
             {
-
-
                 var listOfTritList = _tritRepository.GetTritOthers(user_id);
                 var listOfCustomerContactMap = _mapper.Map<List<TritOthersListModel>>(listOfTritList);
 
@@ -175,7 +172,7 @@ namespace TP.Business
             catch (Exception ex)
             {
                 result.IsSuccess = false;
-                result.Message = Keywords.ListReadError;
+                result.Message = "Gösterilecek trit bulunamadı.";
             }
             return result;
         }
