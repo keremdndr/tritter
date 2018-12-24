@@ -1,0 +1,95 @@
+﻿@using TP.Core
+@model TP.Data.Entities.PageModels.UserModel.UserCreateModel
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Register", "Home", FormMethod.Post))
+{
+
+    <div class="m-portlet">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                    <span class="m-portlet__head-icon m--hide">
+                        <i class="la la-gear"></i>
+                    </span>
+                    <h3 class="m-portlet__head-text">
+                        Kayıt Ol
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <form class="m-form">
+            <div class="m-portlet__body">
+                <div class="m-form__section m-form__section--first">
+                    <div class="form-group m-form__group row">
+                        <label class="col-lg-3 col-form-label">
+                            @Html.LabelFor(model => model.user_username)
+                        </label>
+                        <div class="col-lg-6">
+                            @Html.TextBoxFor(model => model.user_username, null, new { @class = "form-control m-input", @placeholder = "Kullanıcı adı", @maxlength = "100" })
+                            @Html.ValidationMessageFor(model => model.user_username, null, new { @style = "color:red" })
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label class="col-lg-3 col-form-label">
+                            @Html.LabelFor(model => model.user_name)
+                        </label>
+                        <div class="col-lg-6">
+                            @Html.TextBoxFor(model => model.user_name, null, new { @class = "form-control m-input", @placeholder = "Ad", @maxlength = "100" })
+                            @Html.ValidationMessageFor(model => model.user_name, null, new { @style = "color:red" })
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label class="col-lg-3 col-form-label">
+                            @Html.LabelFor(model => model.user_surname)
+                        </label>
+                        <div class="col-lg-6">
+                            @Html.TextBoxFor(model => model.user_surname, null, new { @class = "form-control m-input", @placeholder = "Soyad", @maxlength = "100" })
+                            @Html.ValidationMessageFor(model => model.user_surname, null, new { @style = "color:red" })
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label class="col-lg-3 col-form-label">
+                            @Html.LabelFor(model => model.user_password)
+                        </label>
+                        <div class="col-lg-6">
+                            @Html.TextBoxFor(model => model.user_password, null, new { @class = "form-control m-input", @placeholder = "Şifre", @maxlength = "100" })
+                            @Html.ValidationMessageFor(model => model.user_password, null, new { @style = "color:red" })
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label class="col-lg-3 col-form-label">
+                            @Html.LabelFor(model => model.user_email)
+                        </label>
+                        <div class="col-lg-6">
+                            @Html.TextBoxFor(model => model.user_email, null, new { @class = "form-control m-input", @placeholder = "Email", @maxlength = "100" })
+                            @Html.ValidationMessageFor(model => model.user_email, null, new { @style = "color:red" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-portlet__foot m-portlet__foot">
+                <div class="m-form__actions m-form__actions">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button type="submit" class="btn btn-success">
+                                Kayıt Ol
+                            </button>
+                            <a href="/Home/Index" class="btn btn-secondary" >
+                                Zaten Üyeyim
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+
+    </script>
+}
+
+
