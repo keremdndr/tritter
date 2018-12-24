@@ -84,7 +84,7 @@
                         <div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
                             <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
                                 <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true">
-                                    <a href="/Home/Dashboard?userId=@Model.UserCreateModel." class="m-menu__link m-menu__toggle">
+                                    <a href="/Home/Dashboard?userId=@ViewBag.UserId" class="m-menu__link m-menu__toggle">
                                         <i class="m-menu__link-icon flaticon-add"></i>
                                         <span class="m-menu__link-text">
                                             Ana Sayfa
@@ -317,7 +317,7 @@
                                                 @Model.UserCreateModel.user_name @Model.UserCreateModel.user_surname
                                             </span>
                                             <a href="" class="m-card-profile__email m-link">
-                                                mark.andre@gmail.com
+                                                @Model.UserCreateModel.user_email
                                             </a>
                                         </div>
                                     </div>
@@ -387,146 +387,14 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="m-portlet__head-tools">
-                                        <ul class="m-portlet__nav">
-                                            <li class="m-portlet__nav-item m-portlet__nav-item--last">
-                                                <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
-                                                    <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
-                                                        <i class="la la-gear"></i>
-                                                    </a>
-                                                    <div class="m-dropdown__wrapper">
-                                                        <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
-                                                        <div class="m-dropdown__inner">
-                                                            <div class="m-dropdown__body">
-                                                                <div class="m-dropdown__content">
-                                                                    <ul class="m-nav">
-                                                                        <li class="m-nav__section m-nav__section--first">
-                                                                            <span class="m-nav__section-text">
-                                                                                Quick Actions
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="m-nav__item">
-                                                                            <a href="" class="m-nav__link">
-                                                                                <i class="m-nav__link-icon flaticon-share"></i>
-                                                                                <span class="m-nav__link-text">
-                                                                                    Create Post
-                                                                                </span>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="m-nav__item">
-                                                                            <a href="" class="m-nav__link">
-                                                                                <i class="m-nav__link-icon flaticon-chat-1"></i>
-                                                                                <span class="m-nav__link-text">
-                                                                                    Send Messages
-                                                                                </span>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="m-nav__item">
-                                                                            <a href="" class="m-nav__link">
-                                                                                <i class="m-nav__link-icon flaticon-multimedia-2"></i>
-                                                                                <span class="m-nav__link-text">
-                                                                                    Upload File
-                                                                                </span>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="m-nav__section">
-                                                                            <span class="m-nav__section-text">
-                                                                                Useful Links
-                                                                            </span>
-                                                                        </li>
-                                                                        <li class="m-nav__item">
-                                                                            <a href="" class="m-nav__link">
-                                                                                <i class="m-nav__link-icon flaticon-info"></i>
-                                                                                <span class="m-nav__link-text">
-                                                                                    FAQ
-                                                                                </span>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="m-nav__item">
-                                                                            <a href="" class="m-nav__link">
-                                                                                <i class="m-nav__link-icon flaticon-lifebuoy"></i>
-                                                                                <span class="m-nav__link-text">
-                                                                                    Support
-                                                                                </span>
-                                                                            </a>
-                                                                        </li>
-                                                                        <li class="m-nav__separator m-nav__separator--fit m--hide"></li>
-                                                                        <li class="m-nav__item m--hide">
-                                                                            <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
-                                                                                Submit
-                                                                            </a>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="m_user_profile_tab_1">
                                         <div class="m-portlet m-portlet--full-height ">
                                             <div class="m-portlet__body">
                                                 <div class="m-widget3">
-                                                    <div class="m-widget3__item">
-                                                        <div class="m-widget3__header">
-                                                            <div class="m-widget3__user-img">
-                                                                <img class="m-widget3__img" src="~/Content/assets/app/media/img/users/user1.jpg" alt="">
-                                                            </div>
-                                                            <div class="m-widget3__info">
-                                                                <span class="m-widget3__username">
-                                                                    Melania Trump
-                                                                </span>
-                                                                <br>
-                                                                <span class="m-widget3__time">
-                                                                    2 day ago
-                                                                </span>
-                                                            </div>
-                                                            <div class="m-demo-icon__preview">
-                                                                <i class="flaticon-rocket"></i>
-                                                            </div>
-
-                                                            <div class="m-demo-icon__preview">
-                                                                <i class="la la-heart-o"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="m-widget3__body">
-                                                            <p class="m-widget3__text">
-                                                                Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh euismod tinciduntut laoreet doloremagna aliquam erat volutpat.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="m-widget3__item">
-                                                        <div class="m-widget3__header">
-                                                            <div class="m-widget3__user-img">
-                                                                <img class="m-widget3__img" src="~/Content/assets/app/media/img/users/user4.jpg" alt="">
-                                                            </div>
-                                                            <div class="m-widget3__info">
-                                                                <span class="m-widget3__username">
-                                                                    Lebron King James
-                                                                </span>
-                                                                <br>
-                                                                <span class="m-widget3__time">
-                                                                    1 day ago
-                                                                </span>
-                                                            </div>
-                                                            <div class="m-demo-icon__preview">
-                                                                <i class="flaticon-rocket"></i>
-                                                            </div>
-
-                                                            <div class="m-demo-icon__preview">
-                                                                <i class="la la-heart-o"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="m-widget3__body">
-                                                            <p class="m-widget3__text">
-                                                                Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh euismod tinciduntut laoreet doloremagna aliquam erat volutpat.Ut wisi enim ad minim veniam,quis nostrud exerci tation ullamcorper.
-                                                            </p>
-                                                        </div>
-                                                    </div>
+                                                    @foreach (var userModel in Model.TritListModel)
+                                                    {
                                                     <div class="m-widget3__item">
                                                         <div class="m-widget3__header">
                                                             <div class="m-widget3__user-img">
@@ -534,27 +402,27 @@
                                                             </div>
                                                             <div class="m-widget3__info">
                                                                 <span class="m-widget3__username">
-                                                                    Deb Gibson
+                                                                     @Model.UserCreateModel.user_name @Model.UserCreateModel.user_surname
                                                                 </span>
                                                                 <br>
                                                                 <span class="m-widget3__time">
-                                                                    3 weeks ago
+                                                                    @userModel.trit_time.ToString("dd.MM.yyyy HH:mm")
                                                                 </span>
                                                             </div>
                                                             <div class="m-demo-icon__preview">
                                                                 <i class="flaticon-rocket"></i>
                                                             </div>
-
                                                             <div class="m-demo-icon__preview">
                                                                 <i class="la la-heart-o"></i>
                                                             </div>
                                                         </div>
                                                         <div class="m-widget3__body">
                                                             <p class="m-widget3__text">
-                                                                Lorem ipsum dolor sit amet,consectetuer edipiscing elit,sed diam nonummy nibh euismod tinciduntut laoreet doloremagna aliquam erat volutpat.
+                                                                @userModel.trit_text
                                                             </p>
                                                         </div>
                                                     </div>
+                                                    }
                                                 </div>
                                             </div>
                                         </div>
