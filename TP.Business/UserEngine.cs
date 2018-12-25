@@ -174,6 +174,27 @@ namespace TP.Business
             return result;
         }
 
+        public Result<List<UserListModel>> SearchUser(string word)
+        {
+            var result = new Result<List<UserListModel>>();
+
+            try
+            {
+                var listOfUser = _userRepository.GetAll();
+                var listOfUserMap = _mapper.Map<List<UserListModel>>(listOfUser);
+
+                result.Data = listOfUserMap;
+            }
+            catch (Exception ex)
+            {
+                result.IsSuccess = false;
+                result.Message = Keywords.ListReadError;
+                throw ex;
+            }
+
+            return result;
+        }
+
 
 
     }

@@ -147,5 +147,7 @@ namespace TP.Data
 
         public DbSet<Trit> Trit { get; set; }
 
+        public DbSet<TritLike> TritLike { get; set; }
+
     }
 }

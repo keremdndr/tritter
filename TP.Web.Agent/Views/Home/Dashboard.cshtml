@@ -23,44 +23,55 @@
             </div>
             <div class="m-portlet__body">
                 <div class="m-widget3">
-                    @foreach (var trit in Model.TritOthersListModel)
+
+                    @if (ViewBag.ListIsExist == 0)
                     {
                         <div class="m-widget3__item">
-                            <div class="m-widget3__header">
-                                <div class="m-widget3__user-img">
-                                    <img class="m-widget3__img" src="~/Content/assets/app/media/img/users/user1.jpg" alt="">
-                                </div>
-                                <div class="m-widget3__info">
-                                    <span class="m-widget3__username">
-                                        @trit.username
-                                    </span>
-                                    <br>
-                                    <span class="m-widget3__time">
-                                        @trit.trit_time.ToString("dd.MM.yyyy HH:mm")
-                                    </span>
-                                </div>
-
-
-                                <div class="m-demo-icon__preview">
-                                    <i class="flaticon-rocket"></i>
-                                </div>
-
-                                <div class="m-demo-icon__preview">
-                                    <i onclick="alert('@ViewBag.UserId' + '@trit.trit_id')" class="la la-heart-o"></i>
-                                </div>
-                            </div>
-                            <div class="m-widget3__body">
-                                <p class="m-widget3__text">
-                                    @trit.trit_text
-                                </p>
-                            </div>
+                            <p>Gösterilecek Trit bulunamadı.</p>
                         </div>
+                    }
+                    else
+                    {
+                        int i = 1;
+                        @foreach (var trit in Model.TritOthersListModel)
+                        {
+                            <div class="m-widget3__item">
+                                <div class="m-widget3__header">
+                                    <div class="m-widget3__user-img">
+                                        <img class="m-widget3__img" src="~/Content/assets/app/media/img/users/user1.jpg" alt="">
+                                    </div>
+                                    <div class="m-widget3__info">
+                                        <span class="m-widget3__username">
+                                            @trit.username
+                                        </span>
+                                        <br>
+                                        <span class="m-widget3__time">
+                                            @trit.trit_time.ToString("dd.MM.yyyy HH:mm")
+                                        </span>
+                                    </div>
+
+
+                                    <div class="m-demo-icon__preview">
+                                        <i class="flaticon-rocket"></i>
+                                    </div>
+
+                                    <div class="m-demo-icon__preview">
+                                        <i id="likeButton-@i" onclick="TP.Customer.LikeTrit('@ViewBag.UserId' , '@trit.trit_id' , @i)" class="la la-heart-o"></i>
+                                    </div>
+                                </div>
+                                <div class="m-widget3__body">
+                                    <p class="m-widget3__text">
+                                        @trit.trit_text
+                                    </p>
+                                </div>
+                            </div>
+                            i++;
+                        }
                     }
                 </div>
             </div>
-            </div>
-            <!--end:: Widgets/Support Tickets -->
         </div>
+        <!--end:: Widgets/Support Tickets -->
     </div>
-
+</div>
 

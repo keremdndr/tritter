@@ -1,0 +1,68 @@
+﻿@using TP.Core
+@model List<TP.Data.Entities.PageModels.UserModel.UserListModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-xl-12">
+        <!--begin:: Widgets/Authors Profit-->
+        <div class="m-portlet m-portlet--bordered-semi m-portlet--full-height ">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <h3 class="m-portlet__head-text">
+                            Arama Sonuçları
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="m-portlet__body">
+                <div class="m-widget4">
+                    @if (ViewBag.UserCount == 0)
+                    {
+                        <div class="m-widget4__item">
+                            <div class="m-widget4__info">
+                                <span class="m-widget4__title">
+                                    Aradığınız kişi bulunamadı.
+                                </span>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        int i = 1;
+                        @foreach (var user in Model)
+                        {
+                            <div class="m-widget4__item">
+                                <div class="m-widget4__img m-widget4__img--logo">
+                                    <img src="~/Content/assets/app/media/img/client-logos/logo5.png" alt="">
+                                </div>
+                                <div class="m-widget4__info">
+                                    <span class="m-widget4__title">
+                                        @user.user_name @user.user_surname
+                                    </span>
+                                    <br>
+                                    <span class="m-widget4__sub">
+                                        @user.user_username
+                                    </span>
+                                    <span class="m-widget4__sub">
+                                        @user.user_email
+                                    </span>
+                                </div>
+                                <span class="m-widget4__ext">
+                                    <span class="m-widget4__number m--font-brand">
+                                        <button class="btn btn-success" id="followButton-@i" onclick="TP.Customer.FollowUser('@user.user_id' , '@i')">Takip Et</button>
+                                    </span>
+                                </span>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <!--end:: Widgets/Authors Profit-->
+    </div>
+</div>
+

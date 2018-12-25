@@ -51,66 +51,47 @@
         });
     }
 
+    var likeTrit = function (userId, tritId, i) {
+        TP.Data.PostData({
+            Url: '/Home/LikeTrit',
+            Data: { userId: userId, tritId: tritId },
+            Async: false,
+            LoadingHideTimeout: 1000,
+            SuccessFunc: function (result) {
+                console.log(result.content);
+                if (result.isSuccess) {
+                    $("#likeButton-" + i).css('color', 'red');
+                }
+                else {
+                }
+            }
+        });
+    }
 
-    //var getLastCallIdForPaymentPromise = function (customerId, strProductId, productType, paymentPromiseDate, detail, productNo) {
-    //    TP.Data.GetData({
-    //        Url: '/Customer/GetLastCallId',
-    //        Data: { customerId: customerId, strProductId: strProductId, productType: productType, paymentPromiseDate: paymentPromiseDate, detail: detail, productNo: productNo },
-    //        Async: false,
-    //        LoadingHideTimeout: 1000,
-    //        SuccessFunc: function (result) {
-    //            console.log(result);
-    //            if (result.isSuccess) {
-    //                var lastCallId = result.data;
-    //                var resultCodeList = document.getElementById("resultCodeList");
-    //                if (resultCodeList != null) {
-    //                    var resultCodeListText = resultCodeList.options[resultCodeList.selectedIndex].text;
-    //                } else {
-    //                    var resultCodeListPredictive = document.getElementById("resultCodeListPredictive");
-    //                    console.log(resultCodeListPredictive);
-    //                    var resultCodeListText = resultCodeListPredictive.options[resultCodeListPredictive.selectedIndex].text;
-    //                }
 
-    //                TP.Customer.SendPaymentPromise(lastCallId, customerId, resultCodeListText, strProductId, paymentPromiseDate, productType, productNo, detail);
-    //            }
-    //            else {
-    //                //TODO
-    //            }
-    //        }
-    //    });
-    //}
-
-    //var sendResultCode = function (customerId, lastCallId, resultCodeListText, resultCodeCode, dialedPhone, scheduledDate) {
-    //    TP.Data.PostData({
-    //        Url: '/Customer/SendResultCode',
-    //        Data: { customerId: customerId, lastCallId: lastCallId, resultCodeListText: resultCodeListText, resultCodeCode: resultCodeCode },
-    //        Async: false,
-    //        LoadingHideTimeout: 1000,
-    //        SuccessFunc: function (result) {
-    //            console.log(result.content);
-    //            if (result.isSuccess) {
-    //                if (resultCodeCode == 9) {
-    //                    PhonexSetDispositonCode2(resultCodeCode, result.content, scheduledDate, null, dialedPhone, null, null, null);
-    //                    PhonexDebugPrint("Sonuc kodu gonderildi: " + result.content + " Randevu zamanı: " + scheduledDate);
-    //                    console.log("Sonuc kodu gonderildi: " + result.content + " Randevu zamanı: " + scheduledDate)
-    //                } else {
-    //                    PhonexSetDispositonCode(resultCodeCode, result.content);
-    //                    PhonexDebugPrint("Sonuc kodu gonderildi: " + result.content);
-    //                    console.log("Sonuc kodu gonderildi: " + result.content)
-    //                }
-    //            }
-    //            else {
-    //            }
-    //        }
-    //    });
-    //}
+    var searchUser = function (userId, word) {
+        TP.Data.GetData({
+            Url: '/Home/SearchUser',
+            Data: { userId: userId, word: word },
+            Async: false,
+            LoadingHideTimeout: 1000,
+            SuccessFunc: function (result) {
+                console.log(result);
+                if (result.isSuccess) {
+                    window.location.href = "/Home/Search?userId=" + userId;
+                }
+                else {
+                }
+            }
+        });
+    }
 
     return {
-        //GetLastCallIdForPaymentPromise: getLastCallIdForPaymentPromise,
         CheckUserLogin: checkUserLogin,
         GetTrits: getTrits,
-        SendTritToDB: sendTritToDB
-        //SendResultCode: sendResultCode,
+        SendTritToDB: sendTritToDB,
+        LikeTrit: likeTrit,
+        SearchUser: searchUser
 
     };
 }());

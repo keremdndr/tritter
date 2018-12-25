@@ -20,5 +20,7 @@ namespace TP.Business.Contracts
 
         Result<UserCreateModel> GetByUserId(string user_id);
 
+        Result<List<UserListModel>> SearchUser(string word);
+
     }
 }

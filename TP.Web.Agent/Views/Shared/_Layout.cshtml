@@ -24,7 +24,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--begin::Web font -->
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
-    <script>WebFont.load({
+    <script>
+    WebFont.load({
             google: { "families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"] },
             active: function () {
                 sessionStorage.fonts = true;
@@ -102,16 +103,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
                                             <div class="m-dropdown__inner ">
                                                 <div class="m-dropdown__header">
-                                                    <form class="m-list-search__form">
-                                                        <div class="m-list-search__form-wrapper">
-                                                            <span class="m-list-search__form-input-wrapper">
-                                                                <input id="m_quicksearch_input" autocomplete="off" type="text" name="q" class="m-list-search__form-input" value="" placeholder="Search...">
-                                                            </span>
-                                                            <span class="m-list-search__form-icon-close" id="m_quicksearch_close">
-                                                                <i class="la la-remove"></i>
-                                                            </span>
-                                                        </div>
-                                                    </form>
+                                                    <div class="m-list-search__form-wrapper">
+                                                        <span class="m-list-search__form-input-wrapper">
+                                                            <input id="searchedWord" type="text" class="m-list_input" placeholder="Search...">
+                                                        </span>
+                                                        <span class="m-list-search__form-icon-close" id="m_quicksearch_close">
+                                                            <i class="la la-remove"></i>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                                 <div class="m-dropdown__body">
                                                     <div class="m-dropdown__scrollable m-scrollable" data-scrollable="true" data-max-height="300" data-mobile-max-height="200">
@@ -170,7 +169,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </li>
                                                             <li class="m-nav__separator m-nav__separator--fit"></li>
                                                             <li class="m-nav__item">
-                                                                <a href="snippets/pages/user/login-1.html" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                                                                <a href="/Home/Index" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
                                                                     Logout
                                                                 </a>
                                                             </li>
@@ -203,7 +202,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="m-stack m-stack--flex-tablet-and-mobile m-stack--ver m-stack--desktop">
                     <div class="m-stack__item m-stack__item--left m-stack__item--middle m-stack__item--last">
                         <span class="m-footer__copyright">
-                            2017 &copy; AMK Software
+                            2018 &copy; AMK Software
                         </span>
                     </div>
                 </div>
@@ -255,15 +254,27 @@ License: You must have a valid license purchased only from themeforest(the above
             });
         </script>*@
     <script src="~/Content/font/webfont.js"></script>
-    <script>WebFont.load({
-                google: { "families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"] },
-                active: function () {
-                    sessionStorage.fonts = true;
-                }
-            });</script>
+    <script>
+    WebFont.load({
+            google: { "families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"] },
+            active: function () {
+                sessionStorage.fonts = true;
+            }
+        });</script>
     <script src="~/Content/assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
     <!--end::Base Scripts -->
     <script src="~/Content/assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
+
+    <script>
+        $(document).keypress(function (e) {
+            if (e.which == 13) {
+                var word = $("#searchedWord").val();
+                if (word != null) {
+                    TP.Customer.SearchUser('@ViewBag.UserId' , word);
+                }
+            }
+        });
+    </script>
 </body>
 
 <!-- end::Body -->

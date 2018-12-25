@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Hosting", "04-Hosting", "{79F09481-36DA-44B9-9578-71DD88F32C19}"
-	ProjectSection(SolutionItems) = preProject
-		TP.Business\UserEngine.cs = TP.Business\UserEngine.cs
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP.Web.Agent", "TP.Web.Agent\TP.Web.Agent.csproj", "{9E147B7C-DC12-4892-96E5-5B1B89BAB123}"
 EndProject

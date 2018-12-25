@@ -12,6 +12,7 @@ using TP.Data.Entities.PageModels.UserModel;
 using TP.Data.Entities.PageModels.DashboardPageModel;
 using TP.Data.Entities.PageModels.TritModel;
 using TP.Data.Entities.PageModels.ProfilePageModel;
+using TP.Data.Entities.PageModels.TritLikeModel;
 
 namespace TP.Web.Agent.Controllers
 {
@@ -19,11 +20,13 @@ namespace TP.Web.Agent.Controllers
     {
         private readonly IUserEngine _userEngine;
         private readonly ITritEngine _tritEngine;
+        private readonly ITritLikeEngine _tritLikeEngine;
 
-        public HomeController(IUserEngine userEngine, ITritEngine tritEngine)
+        public HomeController(IUserEngine userEngine, ITritEngine tritEngine, ITritLikeEngine tritLikeEngine)
         {
             _userEngine = userEngine;
             _tritEngine = tritEngine;
+            _tritLikeEngine = tritLikeEngine;
         }
 
         public IActionResult Index()
@@ -82,7 +85,18 @@ namespace TP.Web.Agent.Controllers
                 return View(dashboardPageUserModel);
         }
 
-
+        public IActionResult Search(string userId)
+        {
+            try
+            {
+                return View();
+            }
+            catch
+            {
+                AddNotification(NotifyType.Error, Keywords.OpenPageError);
+                return RedirectToAction("Index", "Home");
+            }
+        }
 
         [HttpPost]
         public IActionResult Register(UserCreateModel userCreateModel)
@@ -166,6 +180,33 @@ namespace TP.Web.Agent.Controllers
             ViewBag.FullName = profilePageUserModel.UserCreateModel.user_name + " " + profilePageUserModel.UserCreateModel.user_surname;
             ViewBag.Email = profilePageUserModel.UserCreateModel.user_email;
             return View(profilePageUserModel);
+        }
+
+        [HttpPost]
+        public IActionResult LikeTrit(string userId, int tritId)
+        {
+            TritLikeCreateModel tritLikeCreateModel = new TritLikeCreateModel
+            {
+                like_status = 1,
+                like_user_id = userId,
+                trit_id = tritId
+            };
+
+            var result = _tritLikeEngine.Create(tritLikeCreateModel);
+
+            return Json(result);
+        }
+
+
+        public IActionResult SearchUser(string userId ,string word)
+        {
+            var result = _userEngine.SearchUser(word);
+            if (result.Data.Count == 0)
+            {
+                ViewBag.UserCount = 0;
+            }
+            Search(userId);
+            return Json(result);
         }
 
         //public IActionResult GetTritsOfOthers(string user_id)
